@@ -37,5 +37,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.build.date \
     ro.build.date.utc
-PRODUCT_PROPERTY_OVERRIDES += \
-    fbe.data.wrappedkey=true
+
+# PRODUCT_PROPERTY_OVERRIDES += \
+#    fbe.data.wrappedkey=true
