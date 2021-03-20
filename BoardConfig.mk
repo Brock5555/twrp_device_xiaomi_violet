@@ -67,7 +67,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/image
 
 # fstab
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/recovery.fstab
+# TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/recovery.fstab
 
 # AVB
 BOARD_AVB_ENABLE := true
@@ -108,9 +108,9 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_FBE := true
-TW_INCLUDE_CRYPTO_FBE := true
-TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
+# TW_INCLUDE_CRYPTO_FBE := true
+# TARGET_HW_DISK_ENCRYPTION := true
+# TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
@@ -128,7 +128,7 @@ TW_MAX_BRIGHTNESS := 4095
 TW_DEFAULT_BRIGHTNESS := 1950
 TW_USE_TOOLBOX := true
 TW_SCREEN_BLANK_ON_BOOT := true
-# TWRP_INCLUDE_LOGCAT := true
+TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TW_HAS_EDL_MODE := true
 TW_Y_OFFSET := 80
@@ -147,3 +147,11 @@ TW_INCLUDE_FUSE_NTFS := true
 TARGET_OTA_ASSERT_DEVICE := violet
 TW_EXCLUDE_TWRPAPP := true
 
+TW_RECOVERY_ADDITIONAL_RELINK_BINARY_FILES += \
+    $(TARGET_OUT_EXECUTABLES)/ashmemd
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.base@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/ashmemd_aidl_interface-cpp.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libashmemd_client.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libicuuc.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
