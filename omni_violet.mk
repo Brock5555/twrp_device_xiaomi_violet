@@ -17,6 +17,10 @@
 # Release name
 PRODUCT_RELEASE_NAME := violet
 
+# Inherit from violet device
+$(call inherit-product, device/xiaomi/violet/device.mk)
+
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit from our custom product configuration
