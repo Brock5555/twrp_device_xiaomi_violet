@@ -44,13 +44,11 @@ on fs
 
 
 on init
-    symlink /etc /system/etc
-    symlink /sbin /system/bin
-    symlink /sbin/busybox /system/bin/sh
-
     # Workaround for setting AVB version
     setprop ro.boot.avb_version 1.0
     setprop ro.boot.vbmeta.avb_version ${ro.boot.avb_version}
+    
+    symlink /system/etc /etc
 
     
     setprop crypto.ready 1
